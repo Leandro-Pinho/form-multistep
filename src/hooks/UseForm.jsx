@@ -6,7 +6,7 @@ const UseForm = (steps) => {
 
     // validação e pegar a etapa atual e mudar
     const changeStep = (i, e) => {
-        if(e) e.preventDefault();
+        if (e) e.preventDefault();
 
         if (i < 0 || i >= steps.length) return
 
@@ -17,7 +17,9 @@ const UseForm = (steps) => {
         currentStep,
         currentComponent: steps[currentStep],
         changeStep,
+        isFirstStep: currentStep + 0 ? false : true,
+        isLastStep: currentStep + 1 === steps.length ? true : false,
     };
 }
 
-export default UseForm;
+export default UseForm

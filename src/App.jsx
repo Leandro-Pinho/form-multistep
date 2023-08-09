@@ -7,6 +7,7 @@ import UseForm from './hooks/UseForm'
 
 // icons
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr'
+import { FiSend } from 'react-icons/fi'
 
 
 // styles
@@ -21,8 +22,14 @@ function App() {
     <Thanks />
   ]
 
-  // estado para as etapas 
-  const { currentStep, currentComponent, changeStep } = UseForm(formComponents)
+  // importando as variaveis das etapas 
+  const {
+    currentStep,
+    currentComponent,
+    changeStep,
+    isFirstStep,
+    isLastStep
+  } = UseForm(formComponents)
 
   return (
     <div className="app">
@@ -37,14 +44,30 @@ function App() {
         <form onSubmit={(e) => changeStep(currentStep + 1, e)}>
           <div className="input-container">{currentComponent}</div>
           <div className="actions">
-            <button type='button' onClick={() => changeStep(currentStep - 1)}>
-              <GrFormPrevious />
-              <span>Voltar</span>
-            </button>
-            <button type='submit'>
-              <span>Avançar</span>
-              <GrFormNext />
-            </button>
+
+            {/* se for a primeira etapa nao vai aparecer o butão para voltar */}
+            {!isFirstStep && (
+              <button type='button' onClick={() => changeStep(currentStep - 1)}>
+                <GrFormPrevious />
+                <span>Voltar</span>
+              </button>
+            )}
+
+            {/* se for a ultima etapa vai aparecer o button de enviar */}
+            {
+              !isLastStep ? (
+                <button type='submit'>
+                  <span>Avançar</span>
+                  <GrFormNext />
+                </button>
+              ) : (
+                <button type='button'>
+                  <span>Enviar</span>
+                  <FiSend />
+                </button>
+              )
+            }
+            
           </div>
         </form>
       </div>
