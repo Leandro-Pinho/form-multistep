@@ -16,13 +16,29 @@ import { FiSend } from 'react-icons/fi'
 // styles
 import './App.css'
 
+import { useState } from 'react'
+
+const formTemplate = {
+  name: "",
+  email: "",
+  review: "",
+  comment: "",
+};
+
 function App() {
+  const [data, setData] = useState(formTemplate)
+
+  const updateFielHandler = (key, value) => {
+    setData((prev) => {
+      return { ...prev, [key]: value };
+    });
+  };
 
   // pages da etapa atual
   const formComponents = [
-    <UserForm />,
-    <ReviewForm />,
-    <Thanks />
+    <UserForm data={data} updateFielHandler={updateFielHandler} />,
+    <ReviewForm data={data} updateFielHandler={updateFielHandler} />,
+    <Thanks data={data} />
   ]
 
   // importando as variaveis das etapas 
