@@ -15,6 +15,10 @@
 .thanks-container h3 {
     margin-bottom: 1rem 0;
 }
+.thanks-container h3 span {
+    color: #817f7f;
+    text-decoration:underline
+}
 
 .review-data {
     text-align: left;
