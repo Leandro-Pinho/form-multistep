@@ -1,7 +1,13 @@
 # formulário de multiplas etapas
 
+
+### Etapa 1
 <img src="./public/multi-Etapas-1.png" alt="">
+
+### Etapa 2
 <img src="./public/multi-Etapas-2.png" alt="">
+
+### Etapa 3
 <img src="./public/multi-Etapas-3.png" alt="">
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
